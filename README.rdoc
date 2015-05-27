@@ -1,28 +1,9 @@
-== README
+ESPN Web Developer Code Project
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+1. Create a HTML5 scoreboard component using the attached JSON data.
 
-Things you may want to cover:
+Use whatever tools, frameworks, libraries, APIs, etc as you are comfortable with. Design is up to you. While we aren't expecting production-quality polish, we are expecting more than just a basic HTML list / table. Bonus points for solid test coverage!
 
-* Ruby version
+2. Within a week, send us a URL to your project on GitHub.
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Make sure the repo is public and that you include any documentation necessary to build your project in the repo’s README.
