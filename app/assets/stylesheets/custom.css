@@ -1,0 +1,6 @@
+.myfont {
+font-family: 'BentonSans-Regular';
+font-style: normal;
+font-weight: normal;
+src: url('../fonts/BentonSans-Regular.woff') format('woff');
+}
