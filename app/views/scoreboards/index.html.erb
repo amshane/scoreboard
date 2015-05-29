@@ -15,7 +15,7 @@
 				<% datetime = DateTime.iso8601(dt) %>
 				<% new_datetime = datetime.strftime("%a, %B %e, %Y %l:%M %p ET") %>
 
-				<div class="panel-heading">
+				<div class="panel-heading top-bar">
 					<%= new_datetime %><br>
 
 					<% if competition['status']['description'] == "FINAL" %>
@@ -28,14 +28,30 @@
 				</div>
 
 				<table class="table-responsive table">
-					<tr>
-
+					<tr class="my-headers">
+						<td class="column1"></td>
+						<td class="column2"></td>
+						<% if competition['status']['description'] != "SCHEDULED" %>
+							<td class="column345-option2" style="font-weight: lighter;">R</td>
+							<td class="column345-option2" style="font-weight: lighter;">H</td>
+							<td class="column345-option2" style="font-weight: lighter;">E</td>
+						<% else %>
+							<td class="column345-option1" style="font-weight: lighter;">PROBABLE PITCHERS</td>
+						<% end %>
+						<% if competition['status']['description'] == "FINAL" %>
+							<td class="column678-option1" style="font-weight: lighter; border-left: solid; border-left-width: 1px; border-left-color: #999999;">WINS</td>
+							<td class="column678-option1" style="font-weight: lighter;">LOSSES</td>
+							<td class="column678-option1" style="font-weight: lighter;">TIES</td>
+						<% else %>
+							<td class="column678-option2" style="border-left: solid; border-left-width: 1px; border-left-color: #999999;"></td>
+						<% end %>
+							<td class="column9"></td>
 					</tr>
 					<% competition['competitors'].each do |t| %>
 						<!-- home team -->
 						<% if t['homeAway'] == "home" %>
 							<tr>
-								<td class="column1" style="border-style: none;">
+								<td class="column1">
 									<% @team_urls_array.each do |url| %>
 										<% if url.include?("/#{t['team']['abbreviation'].downcase}/") %>
 											<% html = Nokogiri::HTML(open(url)) %>
@@ -44,7 +60,7 @@
 										<% end %>
 									<% end %>
 								</td>
-								<td class="column2" style="border-style: none;">
+								<td class="column2">
 									<strong><h4 style="margin-bottom:0px;"><%= t['team']['location'] %> <%= t['team']['name'] %></h4></strong>
 									
 									<div class="record">(<%= t['team']['record']['summary'] %>)</div>
@@ -55,7 +71,7 @@
 
 								<!-- starting pitcher -->
 								<% if competition['status']['description'] == "SCHEDULED" %>
-									<td class="column345-option1" style="border-style: none;">
+									<td class="column345-option1">
 										<!-- desktop -->
 											<a href=<%= competition['stats']['homeStartingPitcher']['athlete']['links']['web']['href'] %>><%= competition['stats']['homeStartingPitcher']['athlete']['firstName'] %> <%= competition['stats']['homeStartingPitcher']['athlete']['lastName'] %></a><br>
 
@@ -63,41 +79,97 @@
 											<a href=<%= competition['stats']['homeStartingPitcher']['athlete']['links']['mobile']['href'] %>><%= competition['stats']['homeStartingPitcher']['athlete']['firstName'] %> <%= competition['stats']['homeStartingPitcher']['athlete']['lastName'] %></a>
 									</td>
 								<% else %>
-									<td class="column345-option2" style="border-style: none;">R</td>
-									<td class="column345-option2" style="border-style: none;">H</td>
-									<td class="column345-option2" style="border-style: none;">E</td>
+									<td class="column345-option2 column-text" style="font-size: 16px; font-weight: bold;">0</td>
+									<td class="column345-option2 column-text" style="font-size: 16px; font-weight: bold;"><%= t['score'] %></td>
+									<td class="column345-option2 column-text" style="font-size: 16px; font-weight: bold;">0</td>
 								<% end %>
 
 								<% if competition['status']['description'] == "FINAL" %>
-									<td class="column678-option1" style="border-style:none none none solid; border-width: 1px;"><%= t['team']['record']['wins'] %></td>
-									<td class="column678-option1" style="border-style:none;"><%= t['team']['record']['losses'] %></td>
-									<td class="column678-option1" style="border-style:none solid none none; border-width: 1px;"><%= t['team']['record']['ties'] %></td>
+									<td class="column678-option1 column_border column-text" style="border-style:none none none solid; font-size: 16px; font-weight: bold;"><%= t['team']['record']['wins'] %></td>
+									<td class="column678-option1 column-text" style="border-style:none; font-size: 16px; font-weight: bold;"><%= t['team']['record']['losses'] %></td>
+									<td class="column678-option1 column-border column-text" style="border-style:none solid none none; border-width: 1px; font-size: 16px; font-weight: bold;"><%= t['team']['record']['ties'] %></td>
 								<% elsif competition['status']['description'] == "IN PROGRESS" %>
-									<td rowspan="2" class="column678-option2" style="border-style: none solid; border-width: 1px;">
-										Balls: <%= competition['situation']['balls'] %><br>
-										Strikes: <%= competition['situation']['strikes'] %><br>
-										<%= competition['situation']['outsText'] %><br>
-										<%= competition['situation']['baseRunnersText'] %><br>
-										Pitching: <%= competition['situation']['currentPitcher']['shortName'] %><br>
-										Batting: <%= competition['situation']['currentBatter']['shortName'] %><br>
-										<%= competition['situation']['shortDetail'] %><br>
-										Last Play: <%= competition['situation']['lastAtBatResult'] %>
+									<td rowspan="2" class="column678-option2 column_border about-game-text" style="border-style:none solid;">
+										<div>
+											<i class="fa fa-male" style="color: black;"></i> Pitching: <%= competition['situation']['currentPitcher']['shortName'] %><br>
+											<i class="fa fa-male" style="color: black;"></i> Batting: <%= competition['situation']['currentBatter']['shortName'] %><br><br>
+
+											Balls: 
+												<% if competition['situation']['balls'] == 4 %>
+													<i class="fa fa-circle" style="color: black;"></i> <i class="fa fa-circle" style="color: black;"></i> <i class="fa fa-circle" style="color: black;"></i> <i class="fa fa-circle" style="color: black;"></i><br>
+												<% elsif competition['situation']['balls'] == 3 %>
+													<i class="fa fa-circle" style="color: black;"></i> <i class="fa fa-circle" style="color: black;"></i> <i class="fa fa-circle" style="color: black;"></i> <i class="fa fa-circle" style="color: #D2D2D2;"></i><br>
+												<% elsif competition['situation']['balls'] == 2 %>
+													<i class="fa fa-circle" style="color: black;"></i> <i class="fa fa-circle" style="color: black;"></i> <i class="fa fa-circle" style="color: #D2D2D2;"></i> <i class="fa fa-circle" style="color: #D2D2D2;"></i><br>
+												<% elsif competition['situation']['balls'] == 1 %>
+													<i class="fa fa-circle" style="color: black;"></i> <i class="fa fa-circle" style="color: #D2D2D2;"></i> <i class="fa fa-circle" style="color: #D2D2D2;"></i> <i class="fa fa-circle" style="color: #D2D2D2;"></i><br>
+												<% else %>
+													<i class="fa fa-circle" style="color: #D2D2D2;"></i> <i class="fa fa-circle" style="color: #D2D2D2;"></i> <i class="fa fa-circle" style="color: #D2D2D2;"></i> <i class="fa fa-circle" style="color: #D2D2D2;"></i><br>
+												<% end %>
+
+											Strikes:
+												<% if competition['situation']['strikes'] == 3 %>
+													<i class="fa fa-circle" style="color: black;"></i> <i class="fa fa-circle" style="color: black;"></i> <i class="fa fa-circle" style="color: black;"></i> <i class="fa fa-circle" style="color: #D2D2D2;"></i><br>
+												<% elsif competition['situation']['strikes'] == 2 %>
+													<i class="fa fa-circle" style="color: black;"></i> <i class="fa fa-circle" style="color: black;"></i> <i class="fa fa-circle" style="color: #D2D2D2;"></i> <i class="fa fa-circle" style="color: #D2D2D2;"></i><br>
+												<% elsif competition['situation']['strikes'] == 1 %>
+													<i class="fa fa-circle" style="color: black;"></i> <i class="fa fa-circle" style="color: #D2D2D2;"> </i><i class="fa fa-circle" style="color: #D2D2D2;"></i> <i class="fa fa-circle" style="color: #D2D2D2;"></i><br>
+												<% else %>
+													<i class="fa fa-circle" style="color: #D2D2D2;"></i> <i class="fa fa-circle" style="color: #D2D2D2;"></i> <i class="fa fa-circle" style="color: #D2D2D2;"></i> <i class="fa fa-circle" style="color: #D2D2D2;"></i><br>
+												<% end %>
+
+											Outs:
+												<% if competition['situation']['outsText'] == 3 %>
+													<i class="fa fa-circle" style="color: black;"></i> <i class="fa fa-circle" style="color: black;"></i> <i class="fa fa-circle" style="color: black;"></i> <i class="fa fa-circle" style="color: #D2D2D2;"></i><br>
+												<% elsif competition['situation']['outsText'] == 2 %>
+													<i class="fa fa-circle" style="color: black;"></i> <i class="fa fa-circle" style="color: black;"></i> <i class="fa fa-circle" style="color: #D2D2D2;"></i> <i class="fa fa-circle" style="color: #D2D2D2;"></i><br>
+												<% elsif competition['situation']['outsText'] == 1 %>
+													<i class="fa fa-circle" style="color: black;"></i> <i class="fa fa-circle" style="color: #D2D2D2;"> </i><i class="fa fa-circle" style="color: #D2D2D2;"></i> <i class="fa fa-circle" style="color: #D2D2D2;"></i><br>
+												<% else %>
+													<i class="fa fa-circle" style="color: #D2D2D2;"></i> <i class="fa fa-circle" style="color: #D2D2D2;"></i> <i class="fa fa-circle" style="color: #D2D2D2;"></i> <i class="fa fa-circle" style="color: #D2D2D2;"></i><br>
+												<% end %>
+
+											<br><%= competition['status']['shortDetail'] %><br>
+											<%= competition['situation']['baseRunnersText'] %><br><br>
+											
+											Last Play: <%= competition['situation']['lastAtBatResult'] %>
+										</div>
 									</td>
 								<% else %>
-									<td rowspan="2" class="column678-option2" style="border-style: none solid; border-width: 1px;">
-										Location?
-										Tickets?
-										Pick Center?
+									<td rowspan="2" class="column678-option2 column_border about-game-text" style="border-style:none solid;">
+										<%= event['venues'][0]['name'] %><br>
+										<%= event['venues'][0]['city'] %>, <%= event['venues'][0]['state'] %><br>
+										<br>
+										<%= event['type'] %><br>
+										<!-- desktop -->
+										<% if event['links']['web'].include?("tickets") %>
+											<a href=<%= event['links']['web']['tickets']['href'] %>>Tickets</a><br>
+										<% end %>
+
+										<!-- mobile -->
+										<% if event['links']['mobile'].include?("tickets") %>
+											<a href=<%= event['links']['mobile']['tickets']['href'] %>>Tickets</a><br>
+										<% end %>
+										
+										<!-- desktop -->
+										<% if event['links']['web'].include?("pickcenter") %>
+											<br><a href=<%= event['links']['web']['pickcenter']['href'] %>>Pick Center</a>
+										<% end %>
+
+										<!-- mobile -->
+										<% if event['links']['mobile'].include?("pickcenter") %>
+											<br><a href=<%= event['links']['mobile']['pickcenter']['href'] %>>Pick Center</a>
+										<% end %>
 									</td>
 								<% end %>
 
-								<td rowspan="2" class="column9" style="border-style: none;">LINKS</td>
+								<td rowspan="2" class="column9">LINKS</td>
 							</tr>
 
 						<!-- away team -->
 						<% else %>
 							<tr>
-								<td class="column1" style="border-style: none;">
+								<td class="column1">
 									<% @team_urls_array.each do |url| %>
 										<% if url.include?("/#{t['team']['abbreviation'].downcase}/") %>
 											<% html = Nokogiri::HTML(open(url)) %>
@@ -106,7 +178,7 @@
 										<% end %>
 									<% end %>
 								</td>
-								<td class="column2" style="border-style: none;">
+								<td class="column2">
 									<strong><h4 style="margin-bottom:0px;"><%= t['team']['location'] %> <%= t['team']['name'] %></h4></strong>
 									
 									<div class="record">(<%= t['team']['record']['summary'] %>)</div>
@@ -118,7 +190,7 @@
 								<!-- starting pitcher -->
 							
 								<% if competition['status']['description'] == "SCHEDULED" %>
-									<td class="column345-option1" style="border-style: none;">
+									<td class="column345-option1">
 										<!-- desktop -->
 											<a href=<%= competition['stats']['awayStartingPitcher']['athlete']['links']['web']['href'] %>><%= competition['stats']['awayStartingPitcher']['athlete']['firstName'] %> <%= competition['stats']['awayStartingPitcher']['athlete']['lastName'] %></a><br>
 
@@ -126,15 +198,15 @@
 											<a href=<%= competition['stats']['awayStartingPitcher']['athlete']['links']['mobile']['href'] %>><%= competition['stats']['awayStartingPitcher']['athlete']['firstName'] %> <%= competition['stats']['awayStartingPitcher']['athlete']['lastName'] %></a>
 									</td>
 								<% else %>
-									<td class="column345-option2" style="border-style: none;">R</td>
-									<td class="column345-option2" style="border-style: none;">H</td>
-									<td class="column345-option2" style="border-style: none;">E</td>
+									<td class="column345-option2 column-text" style="font-size: 16px; font-weight: bold;">0</td>
+									<td class="column345-option2 column-text" style="font-size: 16px; font-weight: bold;"><%= t['score'] %></td>
+									<td class="column345-option2 column-text" style="font-size: 16px; font-weight: bold;">0</td>
 								<% end %>
 
 								<% if competition['status']['description'] == "FINAL" %>
-									<td class="column678-option1" style="border-style:none none none solid; border-width: 1px;"><%= t['team']['record']['wins'] %></td>
-									<td class="column678-option1" style="border-style:none;"><%= t['team']['record']['losses'] %></td>
-									<td class="column678-option1" style="border-style:none solid none none; border-width: 1px;"><%= t['team']['record']['ties'] %></td>
+									<td class="column678-option1 column_border column-text" style="border-style:none none none solid; font-size: 16px; font-weight: bold;"><%= t['team']['record']['wins'] %></td>
+									<td class="column678-option1 column-text" style="border-style:none; font-size: 16px; font-weight: bold;"><%= t['team']['record']['losses'] %></td>
+									<td class="column678-option1 column_border column-text" style="border-style:none solid none none; font-size: 16px; font-weight: bold;"><%= t['team']['record']['ties'] %></td>
 								<% end %>
 							</tr>
 						<% end %>

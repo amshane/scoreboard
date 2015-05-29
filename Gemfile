@@ -33,6 +33,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'nokogiri'
 
+gem 'sprockets'
+
 require 'open-uri'
 
 gem 'json'

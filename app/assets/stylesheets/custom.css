@@ -1,28 +1,28 @@
 .logo-mlb {
-    height: 50px;
-    width: 50px;
-    /*float: left;*/
-    /*margin-right: 15px;*/
+  height: 50px;
+  width: 50px;
 }
 
-table {
-	border-style: none;
+.my-headers {
+	border-bottom: solid;
+	border-bottom-width: 1px;
+	border-bottom-color: #999999;
 }
 
-tr {
-	border-style: none;
+.top-bar {
+	font-weight: bold !important;
 }
 
 .column1 {
 	width: 5%; 
-	border-style:none; 
+	border-style:none !important; 
 	text-align: center; 
-	vertical-align: middle;
+	vertical-align: middle !important;
 }
 
 .column2 {
 	width: 33%; 
-	border-style:none; 
+	border-style:none !important; 
 	text-align: left;
 }
 
@@ -36,56 +36,53 @@ tr {
 	font-size: 12px;
 }
 
+.about-game-text {
+	color: #999999; 
+	font-size: 12px;
+	font-weight: 200;
+}
+
 .column345-option1 {
 	width: 18%; 
-	border-style:none; 
+	border-style:none !important; 
 	text-align: center; 
-	vertical-align: middle;
+	vertical-align: middle !important;
+	font-weight: bold;
 }
 
 .column345-option2 {
 	width: 6%; 
-	border-style:none; 
+	border-style:none !important; 
 	text-align: center; 
-	vertical-align: middle;
+	vertical-align: middle !important;
 }
 
 .column678-option1 {
 	width: 8%; 
 	text-align: center; 
-	vertical-align: middle;
+	vertical-align: middle !important;
+}
+
+.column_border {
+	border-color: #999999 !important;
+	border-width: 1px !important;
 }
 
 .column678-option2 {
 	width: 24%; 
-	border-style:none solid; 
-	border-width: 1px; 
 	text-align: left; 
 	border-collapse: collapse; 
-	vertical-align: middle;
+	vertical-align: middle !important;
+}
+
+.column-text {
+	color: #999999; 
 }
 
 .column9 {
 	width: 20%; 
-	border-style:none; 
+	border-style:none !important; 
 	text-align: left; 
 	border-collapse: collapse; 
-	vertical-align: middle;
+	vertical-align: middle !important;
 }
-/*.score-record {
-	padding-left: 75px;
-	line-height: .5;
-	font-weight: 600;
-	display: block;
-	font-size: 18px;
-}
-
-.team-name {
-	padding-top: 10px;
-	padding-left: 15px;
-}
-
-.record-stats {
-	float: right;
-	font-size: 18px;
-}*/
