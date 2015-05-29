@@ -26,7 +26,7 @@
 						<br>
 					<% end %>
 				</div>
-
+				
 				<table class="table-responsive table">
 					<tr class="my-headers">
 						<td class="column1"></td>
@@ -47,7 +47,10 @@
 						<% end %>
 							<td class="column9"></td>
 					</tr>
+
+
 					<% competition['competitors'].each do |t| %>
+
 						<!-- home team -->
 						<% if t['homeAway'] == "home" %>
 							<tr>
@@ -72,15 +75,11 @@
 								<!-- starting pitcher -->
 								<% if competition['status']['description'] == "SCHEDULED" %>
 									<td class="column345-option1">
-										<!-- desktop -->
 											<a href=<%= competition['stats']['homeStartingPitcher']['athlete']['links']['web']['href'] %>><%= competition['stats']['homeStartingPitcher']['athlete']['firstName'] %> <%= competition['stats']['homeStartingPitcher']['athlete']['lastName'] %></a><br>
-
-										<!-- mobile -->
-											<a href=<%= competition['stats']['homeStartingPitcher']['athlete']['links']['mobile']['href'] %>><%= competition['stats']['homeStartingPitcher']['athlete']['firstName'] %> <%= competition['stats']['homeStartingPitcher']['athlete']['lastName'] %></a>
 									</td>
 								<% else %>
-									<td class="column345-option2 column-text" style="font-size: 16px; font-weight: bold;">0</td>
 									<td class="column345-option2 column-text" style="font-size: 16px; font-weight: bold;"><%= t['score'] %></td>
+									<td class="column345-option2 column-text" style="font-size: 16px; font-weight: bold;">0</td>
 									<td class="column345-option2 column-text" style="font-size: 16px; font-weight: bold;">0</td>
 								<% end %>
 
@@ -94,7 +93,7 @@
 											<i class="fa fa-male" style="color: black;"></i> Pitching: <%= competition['situation']['currentPitcher']['shortName'] %><br>
 											<i class="fa fa-male" style="color: black;"></i> Batting: <%= competition['situation']['currentBatter']['shortName'] %><br><br>
 
-											Balls: 
+											<strong>BALLS: </strong> 
 												<% if competition['situation']['balls'] == 4 %>
 													<i class="fa fa-circle" style="color: black;"></i> <i class="fa fa-circle" style="color: black;"></i> <i class="fa fa-circle" style="color: black;"></i> <i class="fa fa-circle" style="color: black;"></i><br>
 												<% elsif competition['situation']['balls'] == 3 %>
@@ -107,32 +106,32 @@
 													<i class="fa fa-circle" style="color: #D2D2D2;"></i> <i class="fa fa-circle" style="color: #D2D2D2;"></i> <i class="fa fa-circle" style="color: #D2D2D2;"></i> <i class="fa fa-circle" style="color: #D2D2D2;"></i><br>
 												<% end %>
 
-											Strikes:
+											<strong>STRIKES: </strong> 
 												<% if competition['situation']['strikes'] == 3 %>
-													<i class="fa fa-circle" style="color: black;"></i> <i class="fa fa-circle" style="color: black;"></i> <i class="fa fa-circle" style="color: black;"></i> <i class="fa fa-circle" style="color: #D2D2D2;"></i><br>
+													<i class="fa fa-circle" style="color: black;"></i> <i class="fa fa-circle" style="color: black;"></i> <i class="fa fa-circle" style="color: black;"></i><br>
 												<% elsif competition['situation']['strikes'] == 2 %>
-													<i class="fa fa-circle" style="color: black;"></i> <i class="fa fa-circle" style="color: black;"></i> <i class="fa fa-circle" style="color: #D2D2D2;"></i> <i class="fa fa-circle" style="color: #D2D2D2;"></i><br>
+													<i class="fa fa-circle" style="color: black;"></i> <i class="fa fa-circle" style="color: black;"></i> <i class="fa fa-circle" style="color: #D2D2D2;"></i><br>
 												<% elsif competition['situation']['strikes'] == 1 %>
-													<i class="fa fa-circle" style="color: black;"></i> <i class="fa fa-circle" style="color: #D2D2D2;"> </i><i class="fa fa-circle" style="color: #D2D2D2;"></i> <i class="fa fa-circle" style="color: #D2D2D2;"></i><br>
+													<i class="fa fa-circle" style="color: black;"></i> <i class="fa fa-circle" style="color: #D2D2D2;"></i> <i class="fa fa-circle" style="color: #D2D2D2;"></i><br>
 												<% else %>
-													<i class="fa fa-circle" style="color: #D2D2D2;"></i> <i class="fa fa-circle" style="color: #D2D2D2;"></i> <i class="fa fa-circle" style="color: #D2D2D2;"></i> <i class="fa fa-circle" style="color: #D2D2D2;"></i><br>
+													<i class="fa fa-circle" style="color: #D2D2D2;"></i> <i class="fa fa-circle" style="color: #D2D2D2;"></i> <i class="fa fa-circle" style="color: #D2D2D2;"></i><br>
 												<% end %>
 
-											Outs:
+											<strong>OUTS:</strong> 
 												<% if competition['situation']['outsText'] == 3 %>
-													<i class="fa fa-circle" style="color: black;"></i> <i class="fa fa-circle" style="color: black;"></i> <i class="fa fa-circle" style="color: black;"></i> <i class="fa fa-circle" style="color: #D2D2D2;"></i><br>
+													<i class="fa fa-circle" style="color: black;"></i> <i class="fa fa-circle" style="color: black;"></i> <i class="fa fa-circle" style="color: black;"></i><br>
 												<% elsif competition['situation']['outsText'] == 2 %>
-													<i class="fa fa-circle" style="color: black;"></i> <i class="fa fa-circle" style="color: black;"></i> <i class="fa fa-circle" style="color: #D2D2D2;"></i> <i class="fa fa-circle" style="color: #D2D2D2;"></i><br>
+													<i class="fa fa-circle" style="color: black;"></i> <i class="fa fa-circle" style="color: black;"></i> <i class="fa fa-circle" style="color: #D2D2D2;"></i><br>
 												<% elsif competition['situation']['outsText'] == 1 %>
-													<i class="fa fa-circle" style="color: black;"></i> <i class="fa fa-circle" style="color: #D2D2D2;"> </i><i class="fa fa-circle" style="color: #D2D2D2;"></i> <i class="fa fa-circle" style="color: #D2D2D2;"></i><br>
+													<i class="fa fa-circle" style="color: black;"></i> <i class="fa fa-circle" style="color: #D2D2D2;"></i> <i class="fa fa-circle" style="color: #D2D2D2;"></i><br>
 												<% else %>
-													<i class="fa fa-circle" style="color: #D2D2D2;"></i> <i class="fa fa-circle" style="color: #D2D2D2;"></i> <i class="fa fa-circle" style="color: #D2D2D2;"></i> <i class="fa fa-circle" style="color: #D2D2D2;"></i><br>
+													<i class="fa fa-circle" style="color: #D2D2D2;"></i> <i class="fa fa-circle" style="color: #D2D2D2;"></i> <i class="fa fa-circle" style="color: #D2D2D2;"></i><br>
 												<% end %>
 
 											<br><%= competition['status']['shortDetail'] %><br>
 											<%= competition['situation']['baseRunnersText'] %><br><br>
 											
-											Last Play: <%= competition['situation']['lastAtBatResult'] %>
+											<strong>LAST PLAY: </strong><%= competition['situation']['lastAtBatResult'] %>
 										</div>
 									</td>
 								<% else %>
@@ -141,29 +140,48 @@
 										<%= event['venues'][0]['city'] %>, <%= event['venues'][0]['state'] %><br>
 										<br>
 										<%= event['type'] %><br>
-										<!-- desktop -->
+
 										<% if event['links']['web'].include?("tickets") %>
 											<a href=<%= event['links']['web']['tickets']['href'] %>>Tickets</a><br>
 										<% end %>
-
-										<!-- mobile -->
-										<% if event['links']['mobile'].include?("tickets") %>
-											<a href=<%= event['links']['mobile']['tickets']['href'] %>>Tickets</a><br>
-										<% end %>
 										
-										<!-- desktop -->
 										<% if event['links']['web'].include?("pickcenter") %>
 											<br><a href=<%= event['links']['web']['pickcenter']['href'] %>>Pick Center</a>
-										<% end %>
-
-										<!-- mobile -->
-										<% if event['links']['mobile'].include?("pickcenter") %>
-											<br><a href=<%= event['links']['mobile']['pickcenter']['href'] %>>Pick Center</a>
 										<% end %>
 									</td>
 								<% end %>
 
-								<td rowspan="2" class="column9">LINKS</td>
+								<td rowspan="2" class="column9">
+
+									<% if event['links']['web'].include?("preview") %>
+										<a class="btn btn-default btn-sm" style="border-color: #0066CC; color: #0066CC; width: 110px;" role="button" href=<%= event['links']['web']['preview']['href'] %>>Preview</a><br><br>
+									<% end %>
+
+									<% if event['links']['web'].include?("recap") %>
+										<a class="btn btn-default btn-sm" style="border-color: #FF33CC; color: #FF33CC; width: 110px;" role="button" href=<%= event['links']['web']['recap']['href'] %>>Recap</a><br><br>
+									<% end %>
+
+									<% if event['links']['web'].include?("boxscore") %>
+										<a class="btn btn-default btn-sm" style="border-color: #9966FF; color: #9966FF; width: 110px;" role="button" href=<%= event['links']['web']['boxscore']['href'] %>>Boxscore</a><br><br>
+									<% end %>
+
+									<% if event['links']['web'].include?("liveUpdate") %>
+										<a class="btn btn-default btn-sm" style="border-color: #33CC33; color: #33CC33; width: 110px;" role="button" href=<%= event['links']['web']['liveUpdate']['href'] %>>Live Update</a><br><br>
+									<% end %>
+
+									<% if event['links']['web'].include?("playByPlay") %>
+										<a class="btn btn-default btn-sm" style="border-color: #009999; color: #009999; width: 110px;" role="button" href=<%= event['links']['web']['playByPlay']['href'] %>>Play By Play</a><br><br>
+									<% end %>
+
+									<% if event['links']['web'].include?("conversation") %>
+										<a class="btn btn-default btn-sm" style="border-color: #00CCFF; color: #00CCFF; width: 110px;" role="button" href=<%= event['links']['web']['conversation']['href'] %>>Conversation</a><br><br>
+									<% end %>
+
+									<% if event['links']['web'].include?("liveStream") %>
+										<a class="btn btn-default btn-sm" style="border-color: #993366; color: #993366; width: 110px;" role="button" href=<%= event['links']['web']['liveStream']['href'] %>>Live Stream</a><br><br>
+									<% end %>
+
+								</td>
 							</tr>
 
 						<!-- away team -->
@@ -191,15 +209,11 @@
 							
 								<% if competition['status']['description'] == "SCHEDULED" %>
 									<td class="column345-option1">
-										<!-- desktop -->
 											<a href=<%= competition['stats']['awayStartingPitcher']['athlete']['links']['web']['href'] %>><%= competition['stats']['awayStartingPitcher']['athlete']['firstName'] %> <%= competition['stats']['awayStartingPitcher']['athlete']['lastName'] %></a><br>
-
-										<!-- mobile -->
-											<a href=<%= competition['stats']['awayStartingPitcher']['athlete']['links']['mobile']['href'] %>><%= competition['stats']['awayStartingPitcher']['athlete']['firstName'] %> <%= competition['stats']['awayStartingPitcher']['athlete']['lastName'] %></a>
 									</td>
 								<% else %>
-									<td class="column345-option2 column-text" style="font-size: 16px; font-weight: bold;">0</td>
 									<td class="column345-option2 column-text" style="font-size: 16px; font-weight: bold;"><%= t['score'] %></td>
+									<td class="column345-option2 column-text" style="font-size: 16px; font-weight: bold;">0</td>
 									<td class="column345-option2 column-text" style="font-size: 16px; font-weight: bold;">0</td>
 								<% end %>
 
@@ -214,126 +228,173 @@
 			
 				</table>
 
-				<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#<%= event['id']%>" aria-expanded="false" aria-controls="collapseExample">
-  				Details
-				</button>
-				<br>
-				<br>
+				<div class="details-button">
+					<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#<%= event['id']%>" aria-expanded="false" aria-controls="collapseExample">
+	  				MORE DETAILS
+					</button>
+				</div>
 
-				<div class="collapse" id="<%= event['id']%>">
-					<div class="well">
-						<ul>
-							<% if competition['status']['description'] == "FINAL" %>
-								<%= competition['stats']['attendance']%><br>
-							<% end %>
-
-							<% if competition['stats']['winningPitcher']  %>
-								<!-- desktop -->
-								Winning Pitcher: <a href=<%= competition['stats']['winningPitcher']['athlete']['links']['web']['href'] %>><%= competition['stats']['winningPitcher']['athlete']['firstName'] %> <%= competition['stats']['winningPitcher']['athlete']['lastName'] %></a><br>
-
-								<br>
-								<!-- mobile -->
-								Winning Pitcher: <a href=<%= competition['stats']['winningPitcher']['athlete']['links']['mobile']['href'] %>><%= competition['stats']['winningPitcher']['athlete']['firstName'] %> <%= competition['stats']['winningPitcher']['athlete']['lastName'] %></a><br>
-							<% end %>
-
-							<% if competition['stats']['losingPitcher']  %>
-								<!-- desktop -->
-								Losing Pitcher: <a href=<%= competition['stats']['losingPitcher']['athlete']['links']['web']['href'] %>><%= competition['stats']['losingPitcher']['athlete']['firstName'] %> <%= competition['stats']['losingPitcher']['athlete']['lastName'] %></a><br>
-
-								<br>
-								<!-- mobile -->
-								Losing Pitcher: <a href=<%= competition['stats']['losingPitcher']['athlete']['links']['mobile']['href'] %>><%= competition['stats']['losingPitcher']['athlete']['firstName'] %> <%= competition['stats']['losingPitcher']['athlete']['lastName'] %></a><br>
-							<% end %>
-
-							<% if competition['stats']['savingPitcher']  %>
-							<!-- desktop -->
-								Saving Pitcher: <a href=<%= competition['stats']['savingPitcher']['athlete']['links']['web']['href'] %>><%= competition['stats']['savingPitcher']['athlete']['firstName'] %> <%= competition['stats']['savingPitcher']['athlete']['lastName'] %></a><br>
-
-								<br>
-								<!-- mobile -->
-								Saving Pitcher: <a href=<%= competition['stats']['savingPitcher']['athlete']['links']['mobile']['href'] %>><%= competition['stats']['savingPitcher']['athlete']['firstName'] %> <%= competition['stats']['savingPitcher']['athlete']['lastName'] %></a><br>
-							<% end %>
-
-							<% if competition['stats']['officials'] != {} %>
-								Officials:<br>
-								First Base Umpire: <%= competition['stats']['officials']['firstBaseUmpire'] %><br>
-								Second Base Umpire: <%= competition['stats']['officials']['secondBaseUmpire'] %><br>
-								Third Base Umpire: <%= competition['stats']['officials']['thirdBaseUmpire'] %><br>
-								Home Umpire: <%= competition['stats']['officials']['homeUmpire'] %>
-							<% end %>
-						</ul>
+				<div style="padding-left: 30px; padding-right: 30px;">
+					<div class="collapse" id="<%= event['id']%>">
+						<div class="well" style="margins: 30px;">
 						
+							<% if competition['status']['description'] != "SCHEDULED" %>
+								<div style="width: 100%;">
+									<div class="game-table">
+										<table class="table-responsive table">
+											<tr>
+												<td class="game-table-headers"></td>
+												<td class="game-table-headers">1</td>
+												<td class="game-table-headers">2</td>
+												<td class="game-table-headers">3</td>
+												<td class="game-table-headers">4</td>
+												<td class="game-table-headers">5</td>
+												<td class="game-table-headers">6</td>
+												<td class="game-table-headers">7</td>
+												<td class="game-table-headers">8</td>
+												<td class="game-table-headers">9</td>
+												<td class="game-table-headers">R</td>
+												<td class="game-table-headers">H</td>
+												<td class="game-table-headers">E</td>
+											</tr>
+											<tr>
+												<% competition['competitors'].each do |t| %>
+													<% if t["homeAway"] == "away" %>
+														<td class="game-table-cells game-table-borders"><%= t['team']['abbreviation'] %></td>
+														<td class="game-table-cells game-table-borders"><%= competition["period"] == 1 ? t["score"] : 0 %></td>
+														<td class="game-table-cells game-table-borders"><%= competition["period"] == 2 ? t["score"] : 0 %></td>
+														<td class="game-table-cells game-table-borders"><%= competition["period"] == 3 ? t["score"] : 0 %></td>
+														<td class="game-table-cells game-table-borders"><%= competition["period"] == 4 ? t["score"] : 0 %></td>
+														<td class="game-table-cells game-table-borders"><%= competition["period"] == 5 ? t["score"] : 0 %></td>
+														<td class="game-table-cells game-table-borders"><%= competition["period"] == 6 ? t["score"] : 0 %></td>
+														<td class="game-table-cells game-table-borders"><%= competition["period"] == 7 ? t["score"] : 0 %></td>
+														<td class="game-table-cells game-table-borders"><%= competition["period"] == 8 ? t["score"] : 0 %></td>
+														<td class="game-table-cells game-table-borders"><%= competition["period"] == 9 ? t["score"] : 0 %></td>
+														<td class="game-table-cells game-table-borders"><%= t["score"] %></td>
+														<td class="game-table-cells game-table-borders">0</td>
+														<td class="game-table-cells game-table-borders">0</td>
+													<% end %>
+												<% end %>
+											</tr>
+											<tr>
+												<% competition['competitors'].each do |t| %>
+													<% if t["homeAway"] == "home" %>
+														<td class="game-table-cells game-table-borders"><%= t['team']['abbreviation'] %></td>
+														<td class="game-table-cells game-table-borders"><%= competition["period"] == 1 ? t["score"] : 0 %></td>
+														<td class="game-table-cells game-table-borders"><%= competition["period"] == 2 ? t["score"] : 0 %></td>
+														<td class="game-table-cells game-table-borders"><%= competition["period"] == 3 ? t["score"] : 0 %></td>
+														<td class="game-table-cells game-table-borders"><%= competition["period"] == 4 ? t["score"] : 0 %></td>
+														<td class="game-table-cells game-table-borders"><%= competition["period"] == 5 ? t["score"] : 0 %></td>
+														<td class="game-table-cells game-table-borders"><%= competition["period"] == 6 ? t["score"] : 0 %></td>
+														<td class="game-table-cells game-table-borders"><%= competition["period"] == 7 ? t["score"] : 0 %></td>
+														<td class="game-table-cells game-table-borders"><%= competition["period"] == 8 ? t["score"] : 0 %></td>
+														<td class="game-table-cells game-table-borders"><%= competition["period"] == 9 ? t["score"] : 0 %></td>
+														<td class="game-table-cells game-table-borders"><%= t["score"] %></td>
+														<td class="game-table-cells game-table-borders">0</td>
+														<td class="game-table-cells game-table-borders">0</td>
+													<% end %>
+												<% end %>
+											</tr>
+										</table>
+									</div>
+									<% if competition['status']['description'] == "IN PROGRESS" %>
+										<% if competition['stats']['officials'] != {} %>
+												<div class="officials">
+													<strong>Officials:</strong><br>
+													<strong>First Base Umpire:</strong> <%= competition['stats']['officials']['firstBaseUmpire'] %><br>
+													<strong>Second Base Umpire:</strong> <%= competition['stats']['officials']['secondBaseUmpire'] %><br>
+													<strong>Third Base Umpire:</strong> <%= competition['stats']['officials']['thirdBaseUmpire'] %><br>
+													<strong>Home Umpire:</strong> <%= competition['stats']['officials']['homeUmpire'] %>
+												</div>
+										<% end %>
+									<% end %>
+									<% if competition['status']['description'] == "FINAL" %>
+										<div class="winning-players">
+											<% if competition['stats']['winningPitcher']  %>
+												<strong>Winning Pitcher: </strong><a href=<%= competition['stats']['winningPitcher']['athlete']['links']['web']['href'] %>><%= competition['stats']['winningPitcher']['athlete']['firstName'] %> <%= competition['stats']['winningPitcher']['athlete']['lastName'] %></a><br>
+											<% end %>
 
-						<!-- desktop -->
-						<% if event['links']['web'].include?("preview") %>
-							<a href=<%= event['links']['web']['preview']['href'] %>>Preview</a><br>
-						<% end %>
+											<% if competition['stats']['losingPitcher']  %>
+												<strong>Losing Pitcher: </strong><a href=<%= competition['stats']['losingPitcher']['athlete']['links']['web']['href'] %>><%= competition['stats']['losingPitcher']['athlete']['firstName'] %> <%= competition['stats']['losingPitcher']['athlete']['lastName'] %></a><br>
+											<% end %>
 
-						<% if event['links']['web'].include?("recap") %>
-							<a href=<%= event['links']['web']['recap']['href'] %>>Recap</a><br>
-						<% end %>
+											<% if competition['stats']['savingPitcher']  %>
+												<strong>Saving Pitcher: </strong><a href=<%= competition['stats']['savingPitcher']['athlete']['links']['web']['href'] %>><%= competition['stats']['savingPitcher']['athlete']['firstName'] %> <%= competition['stats']['savingPitcher']['athlete']['lastName'] %></a><br>
+											<% end %>
+										</div>
+									<% end %>
+								</div>
 
-						<% if event['links']['web'].include?("boxscore") %>
-							<a href=<%= event['links']['web']['boxscore']['href'] %>>Boxscore</a><br>
-						<% end %>
+							<% else %>
+							
+								<div style="width: 100%; text-align: center;">
+									<div class="win-table">
+										<table class="table-responsive table">
+											<% competition['competitors'].each do |t| %>
+												<% if t["homeAway"] == "away" %>
+													<tr>
+														<thead>
+															<% @team_urls_array.each do |url| %>
+																<% if url.include?("/#{t['team']['abbreviation'].downcase}/") %>
+																	<% html = Nokogiri::HTML(open(url)) %>
+																	<% image = html.css('div.global-nav-container span img').first.attributes['src'].value %>
+																	<img src="<%= image %>" class="logo-mlb">
+																<% end %>
+															<% end %>
+															<strong><h4 style="display: inline;"><%= t['team']['location'] %> <%= t['team']['name'] %></h4></strong>
+														<thead>
+													</tr>
+													<tr>
+														<td class="win-table-headers win-table-borders">WINS</td>
+														<td class="win-table-headers win-table-borders">LOSSES</td>
+														<td class="win-table-headers win-table-borders">TIES</td>
+													</tr>
+													<tr>
+														<td class="win-table-cells win-table-borders"><%= t['team']['record']['wins'] %></td>
+														<td class="win-table-cells win-table-borders"><%= t['team']['record']['losses'] %></td>
+														<td class="win-table-cells win-table-borders"><%= t['team']['record']['ties'] %></td>
+													</tr>
+												<% end %>
+											<% end %>
+										</table>
+									</div>
 
-						<% if event['links']['web'].include?("liveUpdate") %>
-							<a href=<%= event['links']['web']['liveUpdate']['href'] %>>Live Update</a><br>
-						<% end %>
+									<div class="win-table">
+										<table class="table-responsive table">
+											<% competition['competitors'].each do |t| %>
+												<% if t["homeAway"] == "home" %>
+													<tr>
+														<thead>
+															<% @team_urls_array.each do |url| %>
+																<% if url.include?("/#{t['team']['abbreviation'].downcase}/") %>
+																	<% html = Nokogiri::HTML(open(url)) %>
+																	<% image = html.css('div.global-nav-container span img').first.attributes['src'].value %>
+																	<img src="<%= image %>" class="logo-mlb">
+																<% end %>
+															<% end %>
+															<strong><h4 style="display: inline;"><%= t['team']['location'] %> <%= t['team']['name'] %></h4></strong>
+														</thead>
+													</tr>
+													<tr>
+														<td class="win-table-headers win-table-borders">WINS</td>
+														<td class="win-table-headers win-table-borders">LOSSES</td>
+														<td class="win-table-headers win-table-borders">TIES</td>
+													</tr>
+													<tr>
+														<td class="win-table-cells win-table-borders"><%= t['team']['record']['wins'] %></td>
+														<td class="win-table-cells win-table-borders"><%= t['team']['record']['losses'] %></td>
+														<td class="win-table-cells win-table-borders"><%= t['team']['record']['ties'] %></td>
+													</tr>
+												<% end %>
+											<% end %>
+										</table>
+									</div>
+								</div>
+							<% end %>
 
-						<% if event['links']['web'].include?("playByPlay") %>
-							<a href=<%= event['links']['web']['playByPlay']['href'] %>>Play By Play</a><br>
-						<% end %>
-
-						<% if event['links']['web'].include?("conversation") %>
-							<a href=<%= event['links']['web']['conversation']['href'] %>>Conversation</a><br>
-						<% end %>
-
-						<% if event['links']['web'].include?("pickcenter") %>
-							<a href=<%= event['links']['web']['pickcenter']['href'] %>>Pick Center</a><br>
-						<% end %>
-
-						<% if event['links']['web'].include?("liveStream") %>
-							<a href=<%= event['links']['web']['liveStream']['href'] %>>Live Stream</a><br>
-						<% end %>
-
-						<% if event['links']['web'].include?("tickets") %>
-							<a href=<%= event['links']['web']['tickets']['href'] %>>Tickets</a><br>
-						<% end %>
-
-						<br>
-						<!-- mobile -->
-						<% if event['links']['mobile'].include?("preview") %>
-							<a href=<%= event['links']['mobile']['preview']['href'] %>>Preview</a><br>
-						<% end %>
-
-						<% if event['links']['mobile'].include?("recap") %>
-							<a href=<%= event['links']['mobile']['recap']['href'] %>>Recap</a><br>
-						<% end %>
-
-						<% if event['links']['mobile'].include?("boxscore") %>
-							<a href=<%= event['links']['mobile']['boxscore']['href'] %>>Boxscore</a><br>
-						<% end %>
-
-						<% if event['links']['mobile'].include?("liveUpdate") %>
-							<a href=<%= event['links']['mobile']['liveUpdate']['href'] %>>Live Update</a><br>
-						<% end %>
-
-						<% if event['links']['mobile'].include?("pickcenter") %>
-							<a href=<%= event['links']['mobile']['pickcenter']['href'] %>>Pick Center</a><br>
-						<% end %>
-
-						<% if event['links']['mobile'].include?("tickets") %>
-							<a href=<%= event['links']['mobile']['tickets']['href'] %>>Tickets</a><br>
-						<% end %>
-
-						<br>
-						<%= event['venues'][0]['name'] %><br>
-						<%= event['venues'][0]['city'] %>, <%= event['venues'][0]['state'] %><br>
-						
-						<%= event['type'] %>
 					</div>
 				</div>
+			</div>
 			</div>
 			<br>
 			<br>

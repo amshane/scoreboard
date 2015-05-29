@@ -7,3 +7,23 @@ Use whatever tools, frameworks, libraries, APIs, etc as you are comfortable with
 2. Within a week, send us a URL to your project on GitHub.
 
 Make sure the repo is public and that you include any documentation necessary to build your project in the repo’s README.
+
+== README
+##Scoreboard
+
+---
+
+#####A Ruby on Rails app ESPN Web Developer Code Project
+
+---
+
+##SETUP / INSTALLATION
+
+1. Need to have installed: homebrew, ruby and rails
+
+2. Fork and clone this repo
+
+3. Once inside the urlshortener folder run these commands in your terminal:
+..* `bundle install`
+
+4. Run `rails s` to test out locally

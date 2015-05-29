@@ -1,3 +1,8 @@
+html {
+	position: relative !important;
+  min-height: 100% !important;
+}
+
 .logo-mlb {
   height: 50px;
   width: 50px;
@@ -24,6 +29,7 @@
 	width: 33%; 
 	border-style:none !important; 
 	text-align: left;
+	vertical-align: middle !important;
 }
 
 .record {
@@ -40,6 +46,24 @@
 	color: #999999; 
 	font-size: 12px;
 	font-weight: 200;
+}
+
+.winning-players {
+	color: #999999; 
+	font-size: 14px;
+	font-weight: 400;
+	padding-left: 175px;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.officials {
+	color: #999999; 
+	font-size: 14px;
+	font-weight: 200;
+	padding-left: 175px;
+	display: inline-block;
+	vertical-align: middle;
 }
 
 .column345-option1 {
@@ -85,4 +109,69 @@
 	text-align: left; 
 	border-collapse: collapse; 
 	vertical-align: middle !important;
+	padding-left: 15px;
+}
+
+.game-table {
+	padding-left: 50px;
+	padding-right: 50px;
+	width: 45%; 
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.game-table-headers {
+	color: #999999; 
+	font-size: 16px;
+	font-weight: 700;
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	border-top: none !important;
+}
+
+.game-table-borders {
+	border-style: solid;
+	border-width: 1px;
+	background-color: white;
+}
+
+.game-table-cells {
+	font-size: 14px;
+	font-weight: 700;
+}
+
+.win-table {
+	padding-left: 50px;
+	padding-right: 50px;
+	width: 45%; 
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.win-table-cells {
+	color: #999999; 
+	font-size: 14px;
+	font-weight: 200;
+	width: 33.33%;
+}
+
+.win-table-headers {
+	color: #999999; 
+	font-size: 14px;
+	font-weight: 700;
+	width: 33.33%;
+}
+
+.win-table-borders {
+	border-style: solid;
+	border-width: 1px;
+	background-color: white;
+}
+
+.details-button {
+	text-align: right;
+	padding-right: 100px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	font-weight: bold;
 }
