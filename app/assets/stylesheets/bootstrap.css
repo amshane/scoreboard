@@ -263,7 +263,7 @@ th {
   }
   .table-bordered th,
   .table-bordered td {
-    border: 1px solid #ddd !important;
+    /*border: 1px solid #ddd !important;*/
   }
 }
 
@@ -2272,11 +2272,11 @@ th {
   padding: 8px;
   line-height: 1.42857143;
   vertical-align: top;
-  border-top: 1px solid #ddd;
+  /*border-top: 1px solid #ddd;*/
 }
 .table > thead > tr > th {
   vertical-align: bottom;
-  border-bottom: 2px solid #ddd;
+  /*border-bottom: 2px solid #ddd;*/
 }
 .table > caption + thead > tr:first-child > th,
 .table > colgroup + thead > tr:first-child > th,
@@ -2287,7 +2287,7 @@ th {
   border-top: 0;
 }
 .table > tbody + tbody {
-  border-top: 2px solid #ddd;
+  /*border-top: 2px solid #ddd;*/
 }
 .table .table {
   background-color: #fff;
@@ -2301,7 +2301,7 @@ th {
   padding: 5px;
 }
 .table-bordered {
-  border: 1px solid #ddd;
+   /*border: 1px solid #ddd;*/
 }
 .table-bordered > thead > tr > th,
 .table-bordered > tbody > tr > th,
@@ -2309,11 +2309,11 @@ th {
 .table-bordered > thead > tr > td,
 .table-bordered > tbody > tr > td,
 .table-bordered > tfoot > tr > td {
-  border: 1px solid #ddd;
+  /*border: 1px solid #ddd;*/
 }
 .table-bordered > thead > tr > th,
 .table-bordered > thead > tr > td {
-  border-bottom-width: 2px;
+  /*border-bottom-width: 2px;*/
 }
 .table-striped > tbody > tr:nth-of-type(odd) {
   background-color: #f9f9f9;
@@ -2447,7 +2447,7 @@ table th[class*="col-"] {
     margin-bottom: 15px;
     overflow-y: hidden;
     -ms-overflow-style: -ms-autohiding-scrollbar;
-    border: 1px solid #ddd;
+    /*border: 1px solid #ddd;*/
   }
   .table-responsive > .table {
     margin-bottom: 0;
@@ -5387,15 +5387,15 @@ a.list-group-item-danger.active:focus {
 }
 .panel > .table:first-child,
 .panel > .table-responsive:first-child > .table:first-child {
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
+  /*border-top-left-radius: 3px;*/
+  /*border-top-right-radius: 3px;*/
 }
 .panel > .table:first-child > thead:first-child > tr:first-child,
 .panel > .table-responsive:first-child > .table:first-child > thead:first-child > tr:first-child,
 .panel > .table:first-child > tbody:first-child > tr:first-child,
 .panel > .table-responsive:first-child > .table:first-child > tbody:first-child > tr:first-child {
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
+  /*border-top-left-radius: 3px;*/
+  /*border-top-right-radius: 3px;*/
 }
 .panel > .table:first-child > thead:first-child > tr:first-child td:first-child,
 .panel > .table-responsive:first-child > .table:first-child > thead:first-child > tr:first-child td:first-child,
@@ -5405,7 +5405,7 @@ a.list-group-item-danger.active:focus {
 .panel > .table-responsive:first-child > .table:first-child > thead:first-child > tr:first-child th:first-child,
 .panel > .table:first-child > tbody:first-child > tr:first-child th:first-child,
 .panel > .table-responsive:first-child > .table:first-child > tbody:first-child > tr:first-child th:first-child {
-  border-top-left-radius: 3px;
+  /*border-top-left-radius: 3px;*/
 }
 .panel > .table:first-child > thead:first-child > tr:first-child td:last-child,
 .panel > .table-responsive:first-child > .table:first-child > thead:first-child > tr:first-child td:last-child,
@@ -5415,19 +5415,19 @@ a.list-group-item-danger.active:focus {
 .panel > .table-responsive:first-child > .table:first-child > thead:first-child > tr:first-child th:last-child,
 .panel > .table:first-child > tbody:first-child > tr:first-child th:last-child,
 .panel > .table-responsive:first-child > .table:first-child > tbody:first-child > tr:first-child th:last-child {
-  border-top-right-radius: 3px;
+  /*border-top-right-radius: 3px;*/
 }
 .panel > .table:last-child,
 .panel > .table-responsive:last-child > .table:last-child {
-  border-bottom-right-radius: 3px;
-  border-bottom-left-radius: 3px;
+  /*border-bottom-right-radius: 3px;*/
+  /*border-bottom-left-radius: 3px;*/
 }
 .panel > .table:last-child > tbody:last-child > tr:last-child,
 .panel > .table-responsive:last-child > .table:last-child > tbody:last-child > tr:last-child,
 .panel > .table:last-child > tfoot:last-child > tr:last-child,
 .panel > .table-responsive:last-child > .table:last-child > tfoot:last-child > tr:last-child {
-  border-bottom-right-radius: 3px;
-  border-bottom-left-radius: 3px;
+  /*border-bottom-right-radius: 3px;*/
+  /*border-bottom-left-radius: 3px;*/
 }
 .panel > .table:last-child > tbody:last-child > tr:last-child td:first-child,
 .panel > .table-responsive:last-child > .table:last-child > tbody:last-child > tr:last-child td:first-child,
@@ -5437,7 +5437,7 @@ a.list-group-item-danger.active:focus {
 .panel > .table-responsive:last-child > .table:last-child > tbody:last-child > tr:last-child th:first-child,
 .panel > .table:last-child > tfoot:last-child > tr:last-child th:first-child,
 .panel > .table-responsive:last-child > .table:last-child > tfoot:last-child > tr:last-child th:first-child {
-  border-bottom-left-radius: 3px;
+  /*border-bottom-left-radius: 3px;*/
 }
 .panel > .table:last-child > tbody:last-child > tr:last-child td:last-child,
 .panel > .table-responsive:last-child > .table:last-child > tbody:last-child > tr:last-child td:last-child,
@@ -5447,13 +5447,13 @@ a.list-group-item-danger.active:focus {
 .panel > .table-responsive:last-child > .table:last-child > tbody:last-child > tr:last-child th:last-child,
 .panel > .table:last-child > tfoot:last-child > tr:last-child th:last-child,
 .panel > .table-responsive:last-child > .table:last-child > tfoot:last-child > tr:last-child th:last-child {
-  border-bottom-right-radius: 3px;
+  /*border-bottom-right-radius: 3px;*/
 }
 .panel > .panel-body + .table,
 .panel > .panel-body + .table-responsive,
 .panel > .table + .panel-body,
 .panel > .table-responsive + .panel-body {
-  border-top: 1px solid #ddd;
+  /*border-top: 1px solid #ddd;*/
 }
 .panel > .table > tbody:first-child > tr:first-child th,
 .panel > .table > tbody:first-child > tr:first-child td {
