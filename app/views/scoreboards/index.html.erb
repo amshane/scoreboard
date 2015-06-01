@@ -1,6 +1,6 @@
 <div class="container">
 	<div class="row">
-		<div class="page-header" style="padding-left: 30px">
+		<div class="page-header">
 			<strong><h1>MLB Scoreboard</h1></strong>
 		</div>
 	</div>
@@ -183,9 +183,12 @@
 
 								</td>
 							</tr>
+						<% end %>
+					<% end %>
 
+					<% competition['competitors'].each do |t| %>
 						<!-- away team -->
-						<% else %>
+						<% if t['homeAway'] == "away" %>
 							<tr>
 								<td class="column1">
 									<% @team_urls_array.each do |url| %>
