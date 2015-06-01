@@ -221,9 +221,9 @@
 								<% end %>
 
 								<% if competition['status']['description'] == "FINAL" %>
-									<td class="column678-option1 wins-column-border"><%= t['team']['record']['wins'] %></td>
-									<td class="column678-option1 no-border"><%= t['team']['record']['losses'] %></td>
-									<td class="column678-option1 ties-column-border"><%= t['team']['record']['ties'] %></td>
+								<td class="column678-option1 wins-column-border big-bold-text"><%= t['team']['record']['wins'] %></td>
+									<td class="column678-option1 no-border big-bold-text"><%= t['team']['record']['losses'] %></td>
+									<td class="column678-option1 ties-column-border big-bold-text"><%= t['team']['record']['ties'] %></td>
 								<% end %>
 							</tr>
 						<% end %>
@@ -237,12 +237,12 @@
 					</button>
 				</div>
 
-				<div style="padding-left: 30px; padding-right: 30px;">
+				<div class="before-collapse">
 					<div class="collapse" id="<%= event['id']%>">
-						<div class="well" style="margins: 30px;">
+						<div class="well expanded-bottom">
 						
 							<% if competition['status']['description'] != "SCHEDULED" %>
-								<div style="width: 100%;">
+								<div class="full-width">
 									<div class="game-table">
 										<table class="table-responsive table">
 											<tr>
@@ -330,7 +330,7 @@
 
 							<% else %>
 							
-								<div style="width: 100%; text-align: center;">
+								<div class="full-width center-alignment">
 									<div class="win-table">
 										<table class="table-responsive table">
 											<% competition['competitors'].each do |t| %>
@@ -344,7 +344,7 @@
 																	<img src="<%= image %>" class="logo-mlb">
 																<% end %>
 															<% end %>
-															<strong><h4 style="display: inline;"><%= t['team']['location'] %> <%= t['team']['name'] %></h4></strong>
+															<strong><h4 class="bottom-large-header"><%= t['team']['location'] %> <%= t['team']['name'] %></h4></strong>
 														<thead>
 													</tr>
 													<tr>
@@ -375,7 +375,7 @@
 																	<img src="<%= image %>" class="logo-mlb">
 																<% end %>
 															<% end %>
-															<strong><h4 style="display: inline;"><%= t['team']['location'] %> <%= t['team']['name'] %></h4></strong>
+															<strong><h4 class="bottom-large-header"><%= t['team']['location'] %> <%= t['team']['name'] %></h4></strong>
 														</thead>
 													</tr>
 													<tr>

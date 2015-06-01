@@ -169,6 +169,27 @@ html {
 	font-weight: 200;
 }
 
+.before-collapse {
+	padding-left: 30px; 
+	padding-right: 30px;
+}
+
+.expanded-bottom {
+	margins: 30px;
+}
+
+.full-width {
+	width: 100%;
+}
+
+.center-alignment {
+	text-align: center;
+}
+
+.bottom-large-header {
+	display: inline;
+}
+
 .winning-players {
 	color: #999999; 
 	font-size: 14px;
