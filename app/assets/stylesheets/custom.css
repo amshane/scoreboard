@@ -3,6 +3,14 @@ html {
   min-height: 100% !important;
 }
 
+.my-navbar {
+	background-color: black;
+}
+
+.homepage-link-image {
+	height: 30px;
+}
+
 .my-headers {
 	border-bottom: solid !important;
 	border-bottom-width: 1px !important;
@@ -124,17 +132,8 @@ html {
 	font-size: 12px;
 }
 
-.column-text {
-	color: #999999; 
-}
-
-.column_border {
-	border-color: #999999 !important;
-	border-width: 1px !important;
-}
-
 .no-border {
-	border-style:none !important;
+	border-style: none !important;
 }
 
 .wins-column-border {
@@ -161,12 +160,6 @@ html {
 
 .faded-icon {
 	color: #D2D2D2;
-}
-
-.about-game-text {
-	color: #999999; 
-	font-size: 12px;
-	font-weight: 200;
 }
 
 .before-collapse {
@@ -313,6 +306,18 @@ html {
 	color: #993366; 
 	width: 110px;"
 }
+
+.my-footer {
+	position: absolute; 
+	bottom: 0; 
+	height: 75px; 
+	background-color: black; 
+	width: 100%;
+	padding-top: 20px; 
+	color: white;
+	font-size: 18px;
+}
+
 
 
 
